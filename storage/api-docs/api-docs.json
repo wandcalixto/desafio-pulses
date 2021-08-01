@@ -1,0 +1,304 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Desafio Pulses",
+        "description": "Desenvolvida como parte do desafio do processo seletivo pulses",
+        "contact": {
+            "email": "wandersonsilvadils@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/dimensoes": {
+            "get": {
+                "tags": [
+                    "Dimensoes"
+                ],
+                "summary": "Retornar uma lista de dimensoes",
+                "description": "Returns list of dimensoes",
+                "operationId": "getDimensoesList",
+                "responses": {
+                    "200": {
+                        "description": "Operação bem sucedida"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Dimensoes"
+                ],
+                "summary": "Adicionar nova dimensao ao banco de dados",
+                "operationId": "addDimensao",
+                "responses": {
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/dimensoes/{id}": {
+            "get": {
+                "tags": [
+                    "Dimensoes"
+                ],
+                "summary": "Retornar uma dimensao pelo id",
+                "description": "Returns dimensao data",
+                "operationId": "getDimensaoById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Dimensao id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Operação bem sucedida"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "oauth2_security_example": [
+                            "write:dimensoes",
+                            "read:dimensoes"
+                        ]
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Dimensoes"
+                ],
+                "summary": "Editar uma dimensao",
+                "operationId": "updateDimensao",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Dimensao id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Dimensao não encontrada"
+                    },
+                    "405": {
+                        "description": "Validation exception"
+                    }
+                },
+                "security": [
+                    {
+                        "desafio_auth": [
+                            "write:dimensoes",
+                            "read:dimensoes"
+                        ]
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Dimensoes"
+                ],
+                "summary": "Apagar uma dimensao",
+                "operationId": "apagaDimensao",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id da dimensao a ser excluida",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Dimensao not found"
+                    }
+                },
+                "security": [
+                    {
+                        "desafio_auth": [
+                            "write:dimensao",
+                            "read:dimensao"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/perguntas": {
+            "get": {
+                "tags": [
+                    "Perguntas"
+                ],
+                "summary": "Retornar uma lista de perguntas paginadas",
+                "description": "Returns list of perguntas",
+                "operationId": "getPerguntasList",
+                "responses": {
+                    "200": {
+                        "description": "Operação bem sucedida"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Perguntas"
+                ],
+                "summary": "Adicionar nova pergunta ao banco de dados",
+                "operationId": "addPergunta",
+                "responses": {
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/perguntas/{id}": {
+            "get": {
+                "tags": [
+                    "Perguntas"
+                ],
+                "summary": "Retornar uma pergunta pelo id",
+                "description": "Returns pergunta data",
+                "operationId": "getPerguntaById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Pergunta id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Operação bem sucedida"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "oauth2_security_example": [
+                            "write:perguntas",
+                            "read:perguntas"
+                        ]
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Perguntas"
+                ],
+                "summary": "Editar uma pergunta",
+                "operationId": "updatePergunta",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Pergunta id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Pergunta não encontrada"
+                    },
+                    "405": {
+                        "description": "Validation exception"
+                    }
+                },
+                "security": [
+                    {
+                        "desafio_auth": [
+                            "write:perguntas",
+                            "read:perguntas"
+                        ]
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Perguntas"
+                ],
+                "summary": "Apagar uma pergunta",
+                "operationId": "apagaPergunta",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id da pergunta a ser excluida",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Pergunta not found"
+                    }
+                },
+                "security": [
+                    {
+                        "desafio_auth": [
+                            "write:pergunta",
+                            "read:pergunta"
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    "security": [
+        []
+    ]
+}
