@@ -35,3 +35,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::apiResource('dimensoes', 'DimensaoController')->parameters([ 'dimensoes' => 'dimensao' ]);;
 Route::apiResource('perguntas', 'PerguntaController');
+
+Route::get('/perguntas/dimensao/{dimensao_id}', [PerguntaController::class, 'perguntasByDimensaoId']);
